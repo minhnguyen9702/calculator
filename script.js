@@ -1,28 +1,28 @@
 function add(a, b) {
-    return a + b;
+    return Number(a) + Number(b);
 }
 
 function subtract(a, b) {
-    return a - b;
+    return Number(a) - Number(b);
 }
 
 function multiply(a, b) {
-    return a * b;
+    return Number(a) * Number(b);
 }
 
 function divide(a, b) {
-    return a / b;
+    return Number(a) / Number(b);
 }
 
 function operate(operator, a, b) {
     if (operator == "+") {
-        add(a, b);
+        return add(a, b);
     } if (operator == "-") {
-        subtract(a, b);
+        return subtract(a, b);
     } if (operator == "*") {
-        multiply(a, b);
+        return multiply(a, b);
     } if (operator == "/") {
-        divide(a, b);
+        return divide(a, b);
     }
 };
 
@@ -64,4 +64,8 @@ ops.forEach(op => op.addEventListener('click', function(e) {
     }
 }));
 
-const equals = document.querySelectorAll("#equals")
+const equals = document.querySelector("#equals")
+equals.addEventListener("click", function(e) {
+    secondNumber = displayValue
+    bigDisplay.textContent = operate(operator, firstNumber, secondNumber)
+});
