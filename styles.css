@@ -1,9 +1,40 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 button {
     font-size: 2rem;
     width: 6rem;
     height: 6rem;
 }
 
+.calc {
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    align-self: center;
+    margin: 0.3rem;
+    margin-top: 0;
+}
+
+.small.display {
+    font-size: 1.5rem;
+    height: 1.5rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+}
+
 .display {
     font-size: 3rem;
+    height: 3rem;
+    background-color: white;
+    text-align: right;
+    margin: 0.3rem;
+    padding-right: 0.3rem;
+    margin-top: 0;
 }
