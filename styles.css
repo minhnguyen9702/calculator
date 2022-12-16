@@ -10,6 +10,14 @@ button {
     height: 6rem;
 }
 
+#delete {
+    width: 12.2rem;
+}
+
+#clear {
+    width: 12.2rem;
+}
+
 .calc {
     background-color: grey;
     display: flex;

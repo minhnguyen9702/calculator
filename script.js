@@ -41,6 +41,12 @@ clearNum.addEventListener('click', function(e) {
     smallDisplay.textContent = displayValue
 });
 
+const deleteNum = document.querySelector("#delete")
+deleteNum.addEventListener('click', function(e) {
+    displayValue = displayValue.slice(0, -1)
+    bigDisplay.textContent = displayValue
+});
+
 const bigDisplay = document.querySelector(".big.display")
 const smallDisplay = document.querySelector(".small.display")
 
