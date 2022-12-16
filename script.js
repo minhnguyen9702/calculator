@@ -55,17 +55,27 @@ nums.forEach(num => num.addEventListener('click', function(e) {
 
 const ops = document.querySelectorAll(".op")
 ops.forEach(op => op.addEventListener('click', function(e) {
-    if (firstNumber == "") {
+    if (operator == "") {
         firstNumber = displayValue
         displayValue = ""
         bigDisplay.textContent = displayValue
+
         operator = op.textContent
         smallDisplay.textContent = firstNumber + operator
+    } else {
+        secondNumber = displayValue
+        firstNumber = operate(operator, firstNumber, secondNumber)
+        operator = op.textContent
+        smallDisplay.textContent = firstNumber + operator
+
+        displayValue = ""
+        bigDisplay.textContent = displayValue
     }
 }));
 
 const equals = document.querySelector("#equals")
 equals.addEventListener("click", function(e) {
     secondNumber = displayValue
+    smallDisplay.textContent = firstNumber + operator + secondNumber + "="
     bigDisplay.textContent = operate(operator, firstNumber, secondNumber)
 });
