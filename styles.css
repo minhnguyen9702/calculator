@@ -31,15 +31,15 @@ button {
 }
 
 .small.display {
-    font-size: 1.5rem;
-    height: 1.5rem;
+    font-size: 2rem;
+    height: 2rem;
     margin-top: 0.3rem;
     margin-bottom: 0;
 }
 
 .display {
-    font-size: 3rem;
-    height: 3rem;
+    font-size: 4rem;
+    height: 4rem;
     background-color: white;
     text-align: right;
     margin: 0.3rem;

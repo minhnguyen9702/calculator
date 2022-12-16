@@ -43,6 +43,7 @@ clearNum.addEventListener('click', function(e) {
 
 const deleteNum = document.querySelector("#delete")
 deleteNum.addEventListener('click', function(e) {
+    displayValue = displayValue.toString()
     displayValue = displayValue.slice(0, -1)
     bigDisplay.textContent = displayValue
 });
@@ -58,6 +59,14 @@ nums.forEach(num => num.addEventListener('click', function(e) {
         bigDisplay.textContent = displayValue
     }
 }));
+
+const decimal = document.querySelector("#decimal")
+decimal.addEventListener("click", function(e) {
+    if (displayValue.includes(".") == false) {
+        displayValue = displayValue + decimal.textContent
+        bigDisplay.textContent = displayValue
+    }
+});
 
 const ops = document.querySelectorAll(".op")
 ops.forEach(op => op.addEventListener('click', function(e) {
@@ -82,6 +91,12 @@ ops.forEach(op => op.addEventListener('click', function(e) {
 const equals = document.querySelector("#equals")
 equals.addEventListener("click", function(e) {
     secondNumber = displayValue
-    smallDisplay.textContent = firstNumber + operator + secondNumber + "="
-    bigDisplay.textContent = operate(operator, firstNumber, secondNumber)
+    if (secondNumber == "") {
+        smallDisplay.textContent = ""
+    } else {
+        smallDisplay.textContent = firstNumber + operator + secondNumber + "="
+    }
+
+    displayValue = operate(operator, firstNumber, secondNumber)
+    bigDisplay.textContent = displayValue
 });
