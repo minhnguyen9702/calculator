@@ -32,7 +32,7 @@ let firstNumber = ""
 let secondNumber = ""
 
 const clearNum = document.querySelector("#clear")
-clearNum.addEventListener('click', function(e) {
+clearNum.addEventListener('click', function (e) {
     displayValue = ""
     operator = ""
     firstNumber = ""
@@ -42,7 +42,7 @@ clearNum.addEventListener('click', function(e) {
 });
 
 const deleteNum = document.querySelector("#delete")
-deleteNum.addEventListener('click', function(e) {
+deleteNum.addEventListener('click', function (e) {
     displayValue = displayValue.toString()
     displayValue = displayValue.slice(0, -1)
     bigDisplay.textContent = displayValue
@@ -53,7 +53,7 @@ const smallDisplay = document.querySelector(".small.display")
 
 
 const nums = document.querySelectorAll(".num")
-nums.forEach(num => num.addEventListener('click', function(e) {
+nums.forEach(num => num.addEventListener('click', function (e) {
     if (num.textContent != 0 || displayValue != "") {
         displayValue = displayValue + num.textContent
         bigDisplay.textContent = displayValue
@@ -61,7 +61,7 @@ nums.forEach(num => num.addEventListener('click', function(e) {
 }));
 
 const decimal = document.querySelector("#decimal")
-decimal.addEventListener("click", function(e) {
+decimal.addEventListener("click", function (e) {
     if (displayValue.includes(".") == false) {
         displayValue = displayValue + decimal.textContent
         bigDisplay.textContent = displayValue
@@ -69,7 +69,7 @@ decimal.addEventListener("click", function(e) {
 });
 
 const ops = document.querySelectorAll(".op")
-ops.forEach(op => op.addEventListener('click', function(e) {
+ops.forEach(op => op.addEventListener('click', function (e) {
     if (operator == "") {
         firstNumber = displayValue
         displayValue = ""
@@ -78,18 +78,27 @@ ops.forEach(op => op.addEventListener('click', function(e) {
         operator = op.textContent
         smallDisplay.textContent = firstNumber + operator
     } else {
-        secondNumber = displayValue
-        firstNumber = operate(operator, firstNumber, secondNumber)
-        operator = op.textContent
-        smallDisplay.textContent = firstNumber + operator
+        if (smallDisplay.textContent.includes("=")){
+            firstNumber = displayValue
+            operator = op.textContent
+            smallDisplay.textContent = firstNumber + operator
 
-        displayValue = ""
-        bigDisplay.textContent = displayValue
+            displayValue = ""
+            bigDisplay.textContent = displayValue
+        } else {
+            secondNumber = displayValue
+            firstNumber = operate(operator, firstNumber, secondNumber)
+            operator = op.textContent
+            smallDisplay.textContent = firstNumber + operator
+    
+            displayValue = ""
+            bigDisplay.textContent = displayValue
+        }
     }
 }));
 
 const equals = document.querySelector("#equals")
-equals.addEventListener("click", function(e) {
+equals.addEventListener("click", function (e) {
     secondNumber = displayValue
     if (secondNumber == "") {
         smallDisplay.textContent = ""
